@@ -1,0 +1,153 @@
+﻿@{
+    ViewBag.Title = "TES Guidelines";
+}
+
+<section id="top"></section>
+<section id="Process">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Process Overview.</div>
+        <div class="panel-body">
+            <img src="~/images/process-flow.png" style="width:100%" class="img-responsive" />
+            <p>In this section you can familiarize yourself to different events that can occur while creating your entry.</p>
+        </div>
+    </div>
+</section>
+<section id="Guidelines">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Here are some guidelines in creating your records.</div>
+        <div class="panel-body">
+            <ol>
+                <li>
+                    Every Project is considered as one record/row for your activity.
+                    If you have an activities where you have the same Project,
+                    but with different Activity Type, Staff Type, Billability,
+                    or On Site, that'll still be considered as another Unique Record.
+                </li>
+                <br />
+                <li>
+                    You can also add/delete row/s to save simultaneously your activities.
+                    Note: Maximum entry per save is 10 records/row only.
+                </li>
+                <br />
+                <li>
+                    By checking the checkbox of specific row in the 'Select' column in editing table,
+                    you can manage to delete that row.
+                </li>
+                <br />
+                <li>
+                    Empty Activity Description field, causes failure to save your entry.
+                    So, always give a precise description for every activity you are recording.
+                </li>
+                <br />
+                <li>
+                    Time rendered for each activity per day is recorded under the columns of Days of Week.
+                    Whitespace on this fields, automatically set by the system to 'zero' (0).
+                    Also non-negative and non-numeric are restricted for input.
+                </li>
+                <br />
+                <li>
+                    After filling all the necessary or required (with red asterisk) fields,
+                    kindly double check all the information you supply to every field,
+                    especially the billability type of the activity.
+                    Finally, you can now save your entry.
+                </li>
+                <br />
+                <li>
+                    Once the record is created, you can no longer delete it,
+                    rather you can edit its content.
+                </li>
+                <br />
+            </ol>
+        </div>
+        <!-- List group -->
+    </div>
+</section>
+<section id="Events">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Knowing Some Page Events.</div>
+        <div class="panel-body">
+            <p>In this section you can familiarize yourself to different events that can occur while creating your entry.</p>
+        </div>
+
+        <!-- List group -->
+        <ul>
+            <li>
+                <strong>Search Week</strong>
+                <ul>
+                    <li>Enables you to view the records in that week with the current year</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Previous(<) />Next(>) Button</strong>
+                <ul>
+                    <li>Enables you to go to previous/next week per click</li>
+                    <li>Enables you to view the records in the week specified in the textbox with the current year</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Cancel Button</strong>
+                <ul>
+                    <li>Closes the modal dialog of an entry form</li>
+                </ul>
+            </li>
+            <li>
+                <strong>
+                    Save Button
+                </strong>
+                <ul>
+                    <li>Saves all the information and resets the whole page to its initial state</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</section>
+<span id="top-link-block" class="hidden">
+    <ol class="breadcrumb">
+        <li>
+            <a class="page-scroll" href="#top">
+                <span class="fa fa-chevron-up fa-fw"></span>Back to Top
+            </a>
+        </li>
+        <li><a class="page-scroll" href="#Process">Process Overview</a></li>
+        <li><a class="page-scroll" href="#Guidelines">Guidelines</a></li>
+        <li><a class="page-scroll" href="#Events">Page Events</a></li>
+    </ol>
+</span>
+
+
+@section Style{
+    <style>
+        #top-link-block.affix-top {
+            position: absolute; /* allows it to "slide" up into view */
+            bottom: -82px;
+            left: 10px;
+        }
+
+        #top-link-block.affix {
+            position: fixed; /* keeps it on the bottom once in view */
+            bottom: 18px;
+            left: 10px;
+        }
+    </style>
+}
+@section Scripts {
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/agency.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (($(window).height() + 100) < $(document).height()) {
+                $('#top-link-block').removeClass('hidden').affix({
+                    // how far to scroll down before link "slides" into view
+                    offset: { top: 100 }
+                });
+            }
+        });
+    </script>
+    @*<script src="~/Scripts/cbpAnimatedHeader.min.js"></script>*@
+}
+
+

@@ -1,0 +1,60 @@
+﻿@* -- Created this partial view for performance *@
+
+
+
+<!-- // Modals -->
+<!-- Add Modal Goes Here..-->
+@using (Html.BeginForm("Create", "Entry", FormMethod.Post, new { Id = "frmAdd" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal fade" id="addModal" role="dialog" data-backdrop="static">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">x</button>
+                    <center><h4 class="modal-title">Time Entry Form</h4></center>
+                </div>
+                <div class="modal-body">
+                    <div id="loadingbarAdd" class="row" style="padding-bottom:10%">
+                        <div class="text-center">
+                            <h5>Loading..</h5>
+                            <i class="fa fa-3x fa-spinner fa-pulse"></i>
+                        </div>
+                    </div>
+                    <div id="addModalContainer" style="padding:1%">
+
+                    </div>
+                </div>
+                <div class="modal-footer" id="modalFooterAdd">
+                    <div class="pull-right">
+                        <button type="submit" class="btn btn-success" id="btnSendRequest">
+                            <center>Save</center>
+                        </button>
+                        <button type="button" data-dismiss="modal" class="btn btn-default" id="btnSendRequest">
+                            <center>Cancel</center>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<!-- // End -->
+<!-- Edit Modal Goes Here..-->
+
+
+<div class="modal fade" id="editModal" role="dialog" data-backdrop="static">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">x</button>
+                <center><h4 class="modal-title">Time Entry Form</h4></center>
+            </div>
+            <div class="modal-body">
+                @{ Html.RenderPartial("~/Views/Shared/_Loadingbar.cshtml"); }
+                <div id="editModalContainer"></div>
+            </div>
+        </div>
+    </div>
+</div>

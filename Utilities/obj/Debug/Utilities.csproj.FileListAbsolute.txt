@@ -1,0 +1,5 @@
+C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\TE-System\Utilities\obj\Debug\Utilities.csprojResolveAssemblyReference.cache
+C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\TE-System\Utilities\bin\Debug\Utilities.dll
+C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\TE-System\Utilities\bin\Debug\Utilities.pdb
+C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\TE-System\Utilities\obj\Debug\Utilities.dll
+C:\Users\i-jcadiao\Documents\Visual Studio 2013\Projects\TE-System\Utilities\obj\Debug\Utilities.pdb

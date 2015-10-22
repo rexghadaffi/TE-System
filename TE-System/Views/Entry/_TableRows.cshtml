@@ -1,0 +1,85 @@
+﻿@model TE_System.Models.TimeEntryViewModel
+@using Utilities;
+
+@foreach (var item in Model.Entries)
+{
+    <tr class="@if (item.isValidInfo == false)
+                    { ViewBag.Saved =  AlertMessages.PendingInvalidEntry; @ViewBag.Flagged } text-bold">
+        <td>
+            @Html.DisplayForBoolean(item.isValidInfo)&nbsp;Info
+        @Html.DisplayForBoolean(item.isValidBillability)&nbsp;Billability
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProjectID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ActivityTypeID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.StaffTypeID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PracticeID)
+    </td>
+    <td>
+        @Html.DisplayForCheckbox(item.Billability)
+    </td>
+    <td>
+        @Html.DisplayForCheckbox(item.OnSite)
+    </td>
+    <td>
+        <a href="#edit" data-toggle="popover"
+           title="Daily Rendered Hours" onmouseover="reinitpopover()"
+           data-content="
+            <table class='table table-bordered table-condensed'>
+                <tr>
+                    <td>Mon @DateExtension.DayToDate(DayOfWeek.Monday, Session["week"].ToInteger())</td>
+                    <td><span class='badge'>@Html.DisplayFor(modelItem => item.MondayHours)</span></td>
+                </tr>
+                <tr>
+                    <td>Tue @DateExtension.DayToDate(DayOfWeek.Tuesday, Session["week"].ToInteger())</td>
+                    <td><span class='badge'>@Html.DisplayFor(modelItem => item.TuesdayHours)</span></td>
+                </tr>
+                <tr>
+                    <td>Wed @DateExtension.DayToDate(DayOfWeek.Wednesday, Session["week"].ToInteger())</td>
+                    <td><span class='badge'>@Html.DisplayFor(modelItem => item.WednesdayHours)</span></td>
+                </tr>
+                <tr>
+                    <td>Thu @DateExtension.DayToDate(DayOfWeek.Thursday, Session["week"].ToInteger())</td>
+                    <td><span class='badge'>@Html.DisplayFor(modelItem => item.ThursdayHours)</span></td>
+                </tr>
+                <tr>
+                    <td>Fri @DateExtension.DayToDate(DayOfWeek.Friday, Session["week"].ToInteger())</td>
+                    <td><span class='badge'>@Html.DisplayFor(modelItem => item.FridayHours)</span></td>
+                </tr>
+                <tr>
+                    <td>Sat @DateExtension.DayToDate(DayOfWeek.Saturday, Session["week"].ToInteger())</td>
+                    <td><span class='badge'>@Html.DisplayFor(modelItem => item.SaturdayHours)</span></td>
+                </tr>
+                <tr>
+                    <td>Sun @DateExtension.Sunday(Session["week"].ToInteger())</td>
+                    <td><span class='badge'>@Html.DisplayFor(modelItem => item.SundayHours)</span></td>
+                </tr>
+            </table>">
+            @Html.DisplayFor(modelItem => item.TotalWeekHours)
+        </a>
+    </td>
+    <td class="text-center">
+        <div class="form-inline">
+            <div class="form-group">
+                <a href="#"
+                   data-toggle="popover" onclick="ShowEditModal('@item.ID');"
+                   title="Description" onmouseover="reinitpopover()"
+                   data-content="
+                    <p>@Html.DisplayFor(modelItem => item.Description)</p>">
+                    <span class="fa fa-info-circle"></span>
+                </a>
+            </div>
+            <div class="form-group">                
+                <a href="#" onclick="ShowRemarks('@item.ID');"                   
+                   title="manager remarks"><span class="fa fa-comments"></span></a>
+            </div>
+        </div>
+    </td>
+</tr>
+}

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<TE_System.Models.Annotation>
+<div class="pull-right">
+    <button type="button"
+            id="sidebarclose"
+            data-toggle="sidebar"
+            data-target=".sidebar"
+            class="btn btn-default btn-sm"
+            title="close">
+        x
+    </button>
+</div>
+<div class="container-fluid" style="margin-bottom:25%">
+
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            <h3>List of Remarks</h3>
+            <hr />
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="form-group">
+                <div class="list-group">
+                    <a href="#" class="list-group-item">
+                        <h4 class="text-bold">@item.Subject</h4>
+                        <br />
+                        <i>
+                            <p class="list-group-item-text">
+                                @item.NoteText
+                            </p>
+                        </i>
+                        <br />
+                        <h6 class="text-right">
+                            @item.ManagerName - @item.CreatedOn.ToString("MMM dd yyyy hh:mm:ss tt")
+                        </h6>
+                    </a>
+                </div>
+            </div>        
+        }
+    </div>
+</div>
+<button type="button"
+        id="sidebargo"
+        style="display:none"
+        data-toggle="sidebar"
+        data-target=".sidebar"></button>

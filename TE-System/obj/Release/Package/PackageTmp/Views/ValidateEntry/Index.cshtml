@@ -1,0 +1,160 @@
+﻿@{
+    ViewBag.Title = "Staff Entries";
+}
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading clearfix">
+        <div class="pull-left">
+            My Project Entry Records For Week # @ViewBag.CurrentWeek
+        </div>
+    </div>
+    <!-- Panel Content Goes Here..-->
+    <div class="panel-body">
+        <!-- Toolbar  Goes Here..-->
+        @{ Html.RenderPartial("~/Views/ValidateEntry/_Toolbar.cshtml");  }
+
+        <table id="tblStaffEntries">
+            <thead>
+            <th data-field="StaffFullname" data-align="center" data-sortable="true">Staff</th>
+            <th data-field="StaffTypeID" data-align="center" data-sortable="true">Role</th>
+            <th data-field="ProjectID" data-align="center" data-sortable="true">Project</th>
+            <th data-field="PracticeID" data-align="center" data-sortable="true">Practice</th>
+            <th data-field="ActivityTypeID" data-align="center" data-sortable="true">Activity</th>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Sidebar Controls Go Here..-->
+<div id="sidebar" style="font-size:12px"
+     class="col-xs-10 col-sm-8 col-md-5 sidebar sidebar-right sidebar-animate">  
+</div>
+
+<!-- // Sidebar -->
+@section Scripts {
+    @*-- Initialization and Events Listeners --*@
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tblStaffEntries').bootstrapTable({
+                url: '/ValidateEntry/Data',
+                cache: false,
+                pagination: true,
+                classes: 'table table-hover table-condensed',
+                search: true,
+                showColumn: true,
+                sidePagination: 'server',
+                queryParamsType: 'Else',
+                uniqueId: 'ID',
+                toolbarAlign: 'left',
+                toolbar: '#staffEntriesToolbar',
+                pageList: [10, 20, 50, 100],
+                onClickRow: function (row, $element) {
+                    var key = row["ID"];
+                    ShowSideBar(key);
+                }
+            });
+        });
+        $('#btnSearchWeekValidateEntry').on('click', function () {
+            var inputVal = $('#txtSearchWeek').val();
+
+            if (inputVal != "") {
+                window.location.href = "/ValidateEntry/SearchWeek?date=" + inputVal;
+            }
+            else {
+                $.notify('<strong>Invalid Input!</strong> Select a valid week number.', { type: 'danger' });
+            }
+        });
+        function ShowSideBar(recordID) {
+            $.ajax({
+                // Get Student PartialView
+                url: "/ValidateEntry/GetEntryDetail",
+                type: 'Get',
+                cache: false,
+                data: { id: recordID },
+                success: function (data) {
+                    //Render Sidebar
+                    $('#sidebar').empty().append(data);
+                    //Initialize Tooltip
+                    InitTooltip();
+                    //Show Sidebar
+                    $('#sidebargo').click();
+                },
+                error: function () {
+                    $.notify('<strong>System Error!</strong> Something happened and the server is not responding.', { type: 'danger' });
+                }
+            });
+        }
+        function InitTooltip() {
+            $('[data-toggle="tooltip"]').tooltip();
+        }
+        function CloseSideBar() {
+            $('#sidebargo').click();
+        }
+        function EntryValid() {
+            var id = $('#ID').val();           
+            $.ajax({
+                // Dim Entry as Valid
+                url: "/ValidateEntry/AcceptEntry",
+                type: 'Get',
+                data: { recordID: id },
+                success: function (data) {
+                    alert(data);
+                    // Close Sidebar
+                    $('#sidebargo').click();
+                },
+                error: function () {
+                    $.notify('<strong>System Error!</strong> Something happened and the server is not responding.', { type: 'danger' });
+                }
+            });
+        }
+
+        function FlagBillability() {
+            var id = $('#ID').val();
+            $.ajax({
+                // Dim Entry as Valid
+                url: "/ValidateEntry/FlagBillability",
+                type: 'Get',
+                data: { recordID: id },
+                success: function (data) {                   
+                    $.notify('<strong>' + data + '!</strong> The entry was flagged to the Timekeeper.', { type: 'success' });
+                    $('#sidebargo').click();
+                },
+                error: function () {
+                    $.notify('<strong>System Error!</strong> Something happened and the server is not responding.', { type: 'danger' });
+                }
+            });
+        }
+
+        function FlagInfo() {
+            var id = $('#ID').val();
+            $.ajax({
+                // Dim Entry as Valid
+                url: "/ValidateEntry/FlagInfo",
+                type: 'Get',
+                data: { recordID: id },
+                success: function (data) {
+                    $.notify('<strong>' + data + '!</strong> The entry was flagged to the Staff.', { type: 'success' });
+                    // Close Sidebar
+                    $('#sidebargo').click();
+                },
+                error: function () {
+                    $.notify('<strong>System Error!</strong> Something happened and the server is not responding.', { type: 'danger' });
+                }
+            });
+        }
+        $("#Projects").change(function () {
+            var value = $(this).val();
+            alert('Opps! This function is not yet implemented');
+        });
+     
+        $("#btnFlag").on('click', function () {
+            alert('hehehehe');
+            $('#sidebar').toggle();
+            //$.notify('<strong>The Entry Has Been Flagged!</strong>', { type: 'success' });
+        });       
+        
+    </script>
+    <!-- // Bootstrap-Sidebar Script -->
+    <script src="~/bootstrap-sidebar/sidebar.js"></script>
+}

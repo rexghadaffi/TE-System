@@ -1,0 +1,92 @@
+﻿@model TE_System.Models.TimeEntryViewModel
+@using Utilities;
+<table class="table table-bordered table-condensed">
+    <thead> 
+    <th>
+        @Html.DisplayNameFor(model => Model.Entry.MondayHours)
+        @DateExtension.DayToDate(DayOfWeek.Monday, Session["week"].ToInteger())
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => Model.Entry.TuesdayHours)
+        @DateExtension.DayToDate(DayOfWeek.Tuesday, Session["week"].ToInteger())
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => Model.Entry.WednesdayHours)
+        @DateExtension.DayToDate(DayOfWeek.Wednesday, Session["week"].ToInteger())
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => Model.Entry.ThursdayHours)
+        @DateExtension.DayToDate(DayOfWeek.Thursday, Session["week"].ToInteger())
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => Model.Entry.FridayHours)
+        @DateExtension.DayToDate(DayOfWeek.Friday, Session["week"].ToInteger())
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => Model.Entry.SaturdayHours)
+        @DateExtension.DayToDate(DayOfWeek.Saturday, Session["week"].ToInteger())
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => Model.Entry.SundayHours)
+        @DateExtension.Sunday(Session["week"].ToInteger())
+    </th>
+    </thead>
+    <tr>
+        <td class="col-md-1">
+            @Html.TextBoxFor(model => Model.Entry.MondayHours, new
+                                {
+                                    @class = "form-control",
+                                    @placeholder = "hours",
+                                    @onkeypress = "Numeric(event);"
+                                })
+        </td>
+        <td class="col-md-1">
+            @Html.TextBoxFor(model => Model.Entry.TuesdayHours, new
+                                {
+                                    @class = "form-control",
+                                    @placeholder = "hours",
+                                    @onkeypress = "Numeric(event);"
+                                })
+        </td>
+        <td class="col-md-1">
+            @Html.TextBoxFor(model => Model.Entry.WednesdayHours, new
+                                {
+                                    @class = "form-control",
+                                    @placeholder = "hours",
+                                    @onkeypress = "Numeric(event);"
+                                })
+        </td>
+        <td class="col-md-1">
+            @Html.TextBoxFor(model => Model.Entry.ThursdayHours, new
+                                {
+                                    @class = "form-control",
+                                    @placeholder = "hours",
+                                    @onkeypress = "Numeric(event);"
+                                })
+        </td>
+        <td class="col-md-1">
+            @Html.TextBoxFor(model => Model.Entry.FridayHours, new
+                                {
+                                    @class = "form-control",
+                                    @placeholder = "hours",
+                                    @onkeypress = "Numeric(event);"
+                                })
+        </td>
+        <td class="col-md-1">
+            @Html.TextBoxFor(model => Model.Entry.SaturdayHours, new
+                                {
+                                    @class = "form-control",
+                                    @placeholder = "hours",
+                                    @onkeypress = "Numeric(event);"
+                                })
+        </td>
+        <td class="col-md-1">
+            @Html.TextBoxFor(model => Model.Entry.SundayHours, new
+                                {
+                                    @class = "form-control",
+                                    @placeholder = "hours",
+                                    @onkeypress = "Numeric(event);"
+                                })
+        </td>
+    </tr>
+</table>

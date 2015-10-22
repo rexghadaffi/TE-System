@@ -1,0 +1,22 @@
+﻿@model TE_System.Models.Annotation
+
+<div class="form-horizontal">
+   
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @Html.LabelFor(model => model.Subject, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Subject, new { @class = "form-control", @placeholder = "Enter Title Here.." })
+                @Html.ValidationMessageFor(model => model.Subject)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.NoteText, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.NoteText, new { @class = "form-control", @style = "resize:none", @placeholder = "Enter Remarks Here.." })
+                @Html.ValidationMessageFor(model => model.NoteText)
+            </div>
+        </div>      
+        
+ 
+</div>

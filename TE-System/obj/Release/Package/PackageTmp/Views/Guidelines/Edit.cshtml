@@ -1,0 +1,91 @@
+﻿@model TE_System.TimeEntry
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="form-horizontal">
+               
+                <div class="form-group">
+                    <label for="txtLname">Lastname</label>
+                    <input type="text" onkeypress="Alphabet(event)" class="form-control" name="txtLname" placeholder="Enter Lastname" required />
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="txtFname">Firstname</label>
+
+                    <input type="text"
+                           class="form-control"
+                           name="txtFname"
+                           onkeypress="Alphabet(event)"
+                           placeholder="Enter Firstname"
+                           required />
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="txtLname">Middlename</label>
+                    <input type="text" class="form-control" onkeypress="Alphabet(event)" name="txtMname" placeholder="Enter Middlename" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="txtUsername">Student Number</label>
+                    <input type="text" class="form-control" name="txtUsername" placeholder="Enter Student Number" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="txtEmail">Email</label>
+                    <input type="email" class="form-control" name="txtEmail" placeholder="Enter Email address" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="txtPassword">Password</label>
+                    <input type="password" class="form-control" name="txtPassword" placeholder="Enter Password" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="txtRetypePassword">Re-Type Password</label>
+                    <input type="password" class="form-control" name="txtRetypePassword" placeholder="Re-Type Password">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="txtContact">Contact Number</label>
+                    <input type="tel" onkeypress="Numeric(event)" class="form-control" name="txtContact" placeholder="Enter Contact Number" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="txtGender">Gender</label>
+                    <select class="form-control" name="txtGender" required>
+                        <option selected="selected" value="" disabled>Please select Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="txtCourse">Course</label>
+                    <select class="form-control" required="required" name="txtCourse">
+                        <option value="" disabled selected>Select Course</option>
+
+                        <?php
+
+
+                        $result = mysqli_query($con, "Select * FROM tblcourse where courseStatus = 1");
+
+                        while($row  = mysqli_fetch_array($result))
+                        {
+
+                        echo '
+                        <option value="'.$row['courseID'].'">'.$row['courseName'].'</option>';
+                        }
+
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="txtYeargrad">Year Graduated</label>
+                    <input type="text" class="form-control" name="txtYeargrad" placeholder="Enter Year of Graduation" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="txtaddress">Address (House No.Brgy, City, State)</label>	<br>
+                    <textarea name="txtaddress" class="form-control" rows="8" onkeypress="Alphabet(event)" required placeholder="Enter your House No., Brgy, City, State."></textarea>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="txtYeargrad">Year Graduated</label>
+                    <input type="text" class="form-control" name="txtYeargrad" placeholder="Enter Year of Graduation" required>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

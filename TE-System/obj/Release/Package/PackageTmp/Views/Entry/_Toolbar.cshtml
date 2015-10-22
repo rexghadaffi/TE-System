@@ -1,0 +1,55 @@
+﻿<div id="weekNavbar" style="margin-top:-5px">
+    <div class="form-inline">
+        <div class="form-group">
+            <div class="btn-group">
+                <a href="/Entry/PreviousWeek" class="btn btn-sm btn-default"
+                   data-toggle="tooltip"
+                   data-placement="top"
+                   title="previous week">
+                    <span class="fa fa-chevron-left"></span>
+                </a>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text"
+                       placeholder="Week # @ViewBag.CurrentWeek"
+                       id="txtSearchWeek"
+                       data-toggle="tooltip"
+                       data-placement="bottom"
+                       title="jump to week"
+                       class="form-control input-sm" />
+            </div>
+            <div class="btn-group">
+                <button id="btnSearchWeekEntry" type="submit" class="btn btn-sm btn-default"
+                        style="margin-left:-5px"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="search week">
+                    <span class="fa fa-search"></span>
+                </button>
+            </div>
+        </div>
+        <div class="form-group">
+            <a href="/Entry/NextWeek"
+               type="button" class="btn btn-sm btn-default"
+               data-toggle="tooltip"
+               data-placement="top"
+               title="next week">
+                <span class="fa fa-chevron-right"></span>
+            </a>
+        </div>
+        <div class="form-group">
+            <button type="button" onclick="ShowAddModal()"
+                    class="btn btn-sm btn-info"
+                    data-toggle="tooltip"
+                    data-placement="right"
+                    title="add record"
+                    style="margin-right:2px"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+                <center><span class="fa fa-plus-square"></span></center>
+            </button>
+        </div>
+    </div>
+</div>

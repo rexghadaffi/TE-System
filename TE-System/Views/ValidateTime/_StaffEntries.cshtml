@@ -1,0 +1,42 @@
+﻿@model IEnumerable<TE_System.Models.TimeEntry>
+
+@foreach (var item in Model)
+{
+    <tr onclick="ShowEditTime('@item.ID', '@item.isValidBillability')"
+        class="@if (item.isValidBillability == false) { @ViewBag.Warning }">
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.MondayHours) hrs
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.TuesdayHours) hrs
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.WednesdayHours) hrs
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.ThursdayHours) hrs
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.FridayHours) hrs
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.SaturdayHours) hrs
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.SundayHours) hrs
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.TotalWeekHours) hrs
+        </td>
+    </tr>
+}
+<tr>
+    <td colspan="8">
+        <div class="pull-right">
+            Weekly Total : <b>@ViewBag.TotalHours</b>
+        </div>
+    </td>
+</tr>
+
+
+

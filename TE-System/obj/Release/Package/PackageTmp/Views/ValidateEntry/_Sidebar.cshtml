@@ -1,0 +1,119 @@
+﻿@model TE_System.Models.TimeEntry
+@using Utils;
+
+<!-- content -->
+<div class="container-fluid">
+    <div class="form-horizontal">        
+        <div class="form-group">
+            <h5>
+                Entry Detail For:
+                <strong>@Html.DisplayFor(model => model.StaffFullname)</strong>
+            </h5>
+            <hr class="text-danger text-bold">
+            @Html.HiddenFor(model => model.ID)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description)
+            <p>@Html.DisplayFor(model => model.Description)</p>
+        </div>
+        <div class="form-group">
+            <div class="col-md-6 col-xs-6">
+                @Html.LabelFor(model => model.Billability)
+                <div class="text-accent">
+                    <p>@Html.DisplayFor(model => model.Billability)</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-6">
+                @Html.LabelFor(model => model.OnSite)
+                <div class="text-accent">
+                    <p>@Html.DisplayFor(model => model.OnSite)</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <table class='table table-bordered table-condensed'>
+                <tr class="text-center">
+                    <td><b>Days</b></td>
+                    <td><b>Hours</b></td>
+                </tr>
+                <tr class="text-center">
+                    <td>Mon @DateExtension.DayToDate(DayOfWeek.Monday, Session["week"].ToInteger())</td>
+                    <td><span class='text-primary'>@Html.DisplayFor(modelItem => modelItem.MondayHours)</span></td>
+                </tr>
+                <tr class="text-center">
+                    <td>Tue @DateExtension.DayToDate(DayOfWeek.Tuesday, Session["week"].ToInteger())</td>
+                    <td><span class='text-primary'>@Html.DisplayFor(modelItem => modelItem.TuesdayHours)</span></td>
+                </tr>
+                <tr class="text-center">
+                    <td>Wed @DateExtension.DayToDate(DayOfWeek.Wednesday, Session["week"].ToInteger())</td>
+                    <td><span class='text-primary'>@Html.DisplayFor(modelItem => modelItem.WednesdayHours)</span></td>
+                </tr>
+                <tr class="text-center">
+                    <td>Thu @DateExtension.DayToDate(DayOfWeek.Thursday, Session["week"].ToInteger())</td>
+                    <td><span class='text-primary'>@Html.DisplayFor(modelItem => modelItem.ThursdayHours)</span></td>
+                </tr>
+                <tr class="text-center">
+                    <td>Fri @DateExtension.DayToDate(DayOfWeek.Friday, Session["week"].ToInteger())</td>
+                    <td><span class='text-primary'>@Html.DisplayFor(modelItem => modelItem.FridayHours)</span></td>
+                </tr>
+                <tr class="text-center">
+                    <td>Sat @DateExtension.DayToDate(DayOfWeek.Saturday, Session["week"].ToInteger())</td>
+                    <td><span class='text-primary'>@Html.DisplayFor(modelItem => modelItem.SaturdayHours)</span></td>
+                </tr>
+                <tr class="text-center">
+                    <td>Sun @DateExtension.Sunday(Session["week"].ToInteger())</td>
+                    <td><span class='text-primary'>@Html.DisplayFor(modelItem => modelItem.SaturdayHours)</span></td>
+                </tr>
+                <tr class="text-center">
+                    <td><b>Total Hours:</b></td>
+                    <td><b><span class='text-primary'>@Html.DisplayFor(model => model.TotalWeekHours)<span></b></td>
+                </tr>
+            </table>
+            <div class="pull-left">
+                <button type="button"
+                        id="btnFlagDetails"
+                        class="btn btn-sm btn-warning"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        onclick="FlagInfo()"
+                        title="flag staff">
+                    <span class="fa fa-flag-o"></span>
+                </button>
+                <button type="button"
+                        id="btnFlagDetails"
+                        class="btn btn-sm btn-danger"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        onclick="FlagBillability()"
+                        title="flag timekeeper">
+                    <span class="fa fa-clock-o"></span>
+                </button>
+            </div>
+            <div class="pull-right">
+                <button type="button"
+                        id="btnFlagDetails"
+                        class="btn btn-sm btn-success"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        onclick="EntryValid()"
+                        title="confirm valid">
+                    <span class="fa fa-check"></span>
+                </button>
+                <button type="button"
+                        id="btnCloseSidebar"
+                        class="btn btn-sm btn-default"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        onclick="CloseSideBar()"
+                        title="close">
+                    <span class="fa fa-remove"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<button type="button"
+        id="sidebargo"
+        style="display:none"
+        data-toggle="sidebar"
+        data-target=".sidebar"></button>

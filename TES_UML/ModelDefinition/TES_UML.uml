@@ -1,0 +1,972 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="e88c9bc6-857e-43c1-b106-dfdd168212c9"
+  name="TES_UML" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="6472d8dd-f5b2-42ae-b77c-300d6fbc2aca"
+        name="ContextHelpers"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="aa762dc8-cb8c-4647-90d0-50a77bbb669a">
+            <packageMoniker
+              Id="2de16beb-2408-4d36-b4f6-8e46d91bd7a2"
+              LastKnownName="MS CRM SDK"
+              LastKnownLocation="Package_1014.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="acda56e6-4565-46f6-bee9-a26aecf13706"
+            name="orgURI"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="38800b02-87bd-4b2a-a0de-eb6d84dcdd64"
+            name="credential"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="1ec1b575-882f-47cd-9138-0fe9ce993acb"
+            name="serviceProxy"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="791c37be-aa18-431e-be0b-40e4593616f9"
+            name="service"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="92281017-5927-4ea6-a0f5-b8d87b6d019e"
+            name="Connect"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="31a71b28-fd40-45ca-ad3a-0c1a97577d53"
+            name="FetchEntity"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="73be21b9-7328-442a-bd0b-4d99e0e74a9e"
+            name="ConditionHelper"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="c79b0dde-0fcc-466d-ad40-5b72d7c67b1e"
+            name="Find"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="4950d4f2-35c9-44ff-9595-536bb3bba8b4"
+            name="FindUsingGuid"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="2de16beb-2408-4d36-b4f6-8e46d91bd7a2"
+        LastKnownName="MS CRM SDK"
+        LastKnownLocation="Package_1014.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bca89433-32c6-47f5-b6ae-ff1730e6c718"
+        name="CrmAuthentication"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="dbd58b6f-c2e2-4a1b-97f4-74daa0cf286d">
+            <packageMoniker
+              Id="2de16beb-2408-4d36-b4f6-8e46d91bd7a2"
+              LastKnownName="MS CRM SDK"
+              LastKnownLocation="Package_1014.uml" />
+          </dependency>
+          <dependency
+            Id="d8dc1f86-f1cb-4d06-a8fe-cd52af30860d">
+            <classMoniker
+              Id="0228928d-8d16-4942-93bd-a13ea9d990c9"
+              LastKnownName="PortalUser"
+              LastKnownLocation="Package_1017.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="05a340d3-aeb4-4b4a-8fe5-b65e7977eb4f"
+            name="IsAuthenticated"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4a322116-4898-4b9a-9966-4af639697436"
+                  name="PortalUser"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7fb8660a-d6ea-4469-af0b-ea1fa2ec87ae"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="30144bd6-9c1a-4204-89c3-c3034fb869bb"
+                      LastKnownName="bool"
+                      LastKnownLocation="TES_UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="952eb1fc-4c66-4a96-8999-c6fcdf372fc8"
+        LastKnownName="Models"
+        LastKnownLocation="Package_1017.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="dc5c537f-b165-4407-a308-9edd75c423b5"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6eea21e2-1cf5-440e-9e73-781e09e758c5"
+        name="StaffTypeContext"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="37c010a6-a0fe-4ae2-bb74-93fdcc4db847">
+            <classMoniker
+              Id="34ef7538-e0ab-46dd-9dc3-d1972b467536"
+              LastKnownName="StaffType"
+              LastKnownLocation="Package_1017.uml" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="bb767af1-6efd-4765-99f6-34fbe6660966"
+            isSubstitutable="false">
+            <classMoniker
+              Id="6472d8dd-f5b2-42ae-b77c-300d6fbc2aca"
+              LastKnownName="ContextHelpers"
+              LastKnownLocation="TES_UML.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="2fa9a729-d290-4bdf-8a1e-792c0922436c"
+            name="EntityName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="f03e74d9-fa84-47d1-a1dd-cb7836a51f29"
+            name="FieldsToSort"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="446828d8-9c4b-45db-a443-b300cd7c79ba"
+            name="TargetFields"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="b4cb6cd0-3697-46d1-9265-b2ebe0678501"
+            name="FetchAll"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="56c0aa75-2952-409b-be88-b1f23beb587c"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b857cbc5-86b8-4177-9ae2-b30f68edd157"
+                      LastKnownName="IEnumerable&lt;StaffType&gt;"
+                      LastKnownLocation="TES_UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="0bf33d34-850b-4566-94c0-845220c201e2"
+        name="PracticeContext"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="2f98dc83-1338-47b5-ac7e-84ca699cd991">
+            <classMoniker
+              Id="c62955b5-102d-4ae4-886d-96003aed2b60"
+              LastKnownName="Practice"
+              LastKnownLocation="Package_1017.uml" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="af650263-c147-463f-852b-dca3741d49aa"
+            isSubstitutable="false">
+            <classMoniker
+              Id="6472d8dd-f5b2-42ae-b77c-300d6fbc2aca"
+              LastKnownName="ContextHelpers"
+              LastKnownLocation="TES_UML.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="707def5c-27b4-4639-886e-3d7dd17094f4"
+            name="EntityName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="8578e8a1-8799-41ab-8f8c-a18ba841fab9"
+            name="FieldsToSort"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="8bb668be-ebaf-4e44-88d6-0cc3e5bbad7e"
+            name="TargetFields"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="5963e582-ec53-43f3-a077-51b60b000e79"
+            name="FetchAll"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="f5986a95-e921-419e-90bc-06d9a4a51cd4"
+        name="ProjectContext"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="566f5350-302e-497d-b7d8-f5bfa94932e9">
+            <classMoniker
+              Id="935cf8d8-c6ef-42c6-ad5e-f0548ac14110"
+              LastKnownName="Project"
+              LastKnownLocation="Package_1017.uml" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="716adad5-d210-48ee-a49a-5096002ad219"
+            isSubstitutable="false">
+            <classMoniker
+              Id="6472d8dd-f5b2-42ae-b77c-300d6fbc2aca"
+              LastKnownName="ContextHelpers"
+              LastKnownLocation="TES_UML.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="820363fd-d484-4a42-a76c-a14ce6f99bec"
+            name="EntityName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="abc865dd-5f5e-4841-be56-a88e2d7d6133"
+            name="FieldsToSort"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="66d578da-7859-476a-99b6-3b55e93ffb08"
+            name="TargetFields"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="971b5f4c-9a4b-4dd6-80df-a1819f947269"
+            name="FetchAll"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="c98d2e6a-4424-4de8-93bb-60c6dc8a7bc9"
+            name="FindProjectForUser"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d547274d-6937-4aa3-9605-f5e02d83f6d9"
+        name="ActivityTypeContext"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="eced3ab5-275f-4205-a449-6329620cb842">
+            <classMoniker
+              Id="c2ed73a0-d0c5-48c3-b315-decb36a1ce4e"
+              LastKnownName="ActivityType"
+              LastKnownLocation="Package_1017.uml" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="772ade32-b4d2-48bd-b322-bafa43ac1b5b"
+            isSubstitutable="false">
+            <classMoniker
+              Id="6472d8dd-f5b2-42ae-b77c-300d6fbc2aca"
+              LastKnownName="ContextHelpers"
+              LastKnownLocation="TES_UML.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="96ddb16f-304d-4c52-b938-39f1831adf81"
+            name="EntityName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="bd56aa0d-1eb7-4b98-be5f-9c8d8bd105fc"
+            name="FieldsToSort"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="0b5e7905-9ab5-4cec-b063-845dba640f06"
+            name="TargetFields"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="745d5eaf-3c43-45fe-bd72-1aaf25c91162"
+            name="FetchAll"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6a6210a4-ad51-4a86-aeb8-49c8fdb0fed4"
+        name="TimekeepingContext"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="59c59f9a-5fe6-45d5-b852-e9b92f792b63"
+        name="SystemUserContext"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="2f8f2e22-15a9-4d74-9335-87ab67a53cc4">
+            <classMoniker
+              Id="c2e9ed7f-b273-4e8a-92ca-3be72ecc52d1"
+              LastKnownName="SystemUser"
+              LastKnownLocation="Package_1017.uml" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="d44ceb0b-e13e-4b9c-a5a0-08ec5d969e7c"
+            isSubstitutable="false">
+            <classMoniker
+              Id="6472d8dd-f5b2-42ae-b77c-300d6fbc2aca"
+              LastKnownName="ContextHelpers"
+              LastKnownLocation="TES_UML.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="70ee8369-f849-433f-9c98-83b6e5596d92"
+            name="EntityName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="5619541e-ec5e-4f5b-a20e-7ef64418d7c1"
+            name="FieldsToSort"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="ac0b85d0-5fbd-405b-ad1a-3d4c768e8a38"
+            name="TargetFields"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="b4bb1b8c-4da5-4db3-94fd-c355ba5b5865"
+            name="GetUserDetails"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="5d28f406-67c5-4efb-a335-f038a7fbd101"
+            name="GetUserRoles"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="39caaa49-dcdd-417e-983e-9b1a195e2ddb"
+        name="Timekeeping Context"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="4bf3bea7-7f63-4aa0-88b9-7a93ad523f0b">
+            <classMoniker
+              Id="59c59f9a-5fe6-45d5-b852-e9b92f792b63"
+              LastKnownName="SystemUserContext"
+              LastKnownLocation="TES_UML.uml" />
+          </dependency>
+          <dependency
+            Id="9d58c466-781f-4679-9338-ff38acde0cc8">
+            <classMoniker
+              Id="c2e9ed7f-b273-4e8a-92ca-3be72ecc52d1"
+              LastKnownName="SystemUser"
+              LastKnownLocation="Package_1017.uml" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="486f0032-4a22-443a-a52c-04b91afbb735"
+            isSubstitutable="false">
+            <classMoniker
+              Id="6472d8dd-f5b2-42ae-b77c-300d6fbc2aca"
+              LastKnownName="ContextHelpers"
+              LastKnownLocation="TES_UML.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="c7ba4c5d-019c-49f2-83cb-a338f3fdf71e"
+            name="dbUser"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="fe882117-b01e-413c-8d49-8ef82eadd658"
+            name="WeekNumber"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="3ad3d75d-29bd-4644-b646-e515bb20019b"
+            name="FetchFlaggedUsers"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="f4b647fa-9f84-43e9-9fbb-7e38311caa05"
+        name="TimeEntryContext"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="f275546e-cf45-487e-bb93-fcfbb4b8b1a0">
+            <classMoniker
+              Id="59c59f9a-5fe6-45d5-b852-e9b92f792b63"
+              LastKnownName="SystemUserContext"
+              LastKnownLocation="TES_UML.uml" />
+          </dependency>
+          <dependency
+            Id="fbba54e3-58c1-425b-a2d4-96a9d0118395">
+            <classMoniker
+              Id="8e8e46a5-bac3-43a2-bff3-b950402b2153"
+              LastKnownName="TimeEntry"
+              LastKnownLocation="Package_1017.uml" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="340c4ae0-cbc0-4420-8fc9-8332fba297ba"
+            isSubstitutable="false">
+            <classMoniker
+              Id="6472d8dd-f5b2-42ae-b77c-300d6fbc2aca"
+              LastKnownName="ContextHelpers"
+              LastKnownLocation="TES_UML.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="7168adc0-4a0d-471f-9d21-8dc793d77dcd"
+            name="EntityName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="1332caaa-7815-4e59-a7a7-f77a23b43e80"
+            name="TargetFields"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="fdf67f70-d335-4699-97cf-a19220bda6c8"
+            name="dbUser"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="83e97961-22c8-4e72-afd7-39e65b8f485f"
+            name="AddNewRecord"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="6d3947e7-ca89-407f-a31d-e53d7314a32e"
+            name="ExtractFormCollection"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="366a5381-70a8-4de7-9ab4-86bd51d54fd4"
+            name="FlagInfo"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="c0d0a65f-a152-40d2-85f9-6c22412d1c54"
+            name="FlagBillability"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="6202b4cc-9e5e-4307-bb41-77d92bb7637b"
+            name="EntryValid"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="5449df4e-b995-4980-910f-a019f9c9d1f9"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="7bafc6a1-db5f-4702-b4d5-c6670ad6c0d2"
+            name="TotalWeekHours"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="37f2a621-6d13-403f-ada1-c40c14cc2bd4"
+            name="FetchForUser"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="3f26166d-6017-480e-b58c-c5b6cb2a0a0e"
+            name="FetchAll"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="d057ff81-088a-48d0-93bd-bd861854e4f3"
+            name="FetchPartialDetails"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="2474448a-5fdd-4550-8515-584ad0051406"
+            name="FetchSetter"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="750c5d50-c1f0-435d-bc73-03034cba4e27"
+        name="User"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="98aedaac-ca13-420e-96f1-70bf9f766a16"
+        name="Artifact1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5bef2f4c-ca58-4348-b362-63a529eb100b"
+        name="UseCase1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="e5f703e2-809b-4b4d-ab61-e49330056888"
+        name="Artifact2"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="4166ffc0-e60f-4906-a7d5-b824d6e703f2"
+        name="Subsystem1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="ed973aae-b52f-4518-bdc9-ab9e0e32bbf5"
+        name="Subsystem2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="11080d55-aeff-4a2f-a0a2-33a857b1c8ac"
+        name="Subsystem3"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="d9328bba-a4f3-4edb-a868-55f1c771171a"
+        name="Actor1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a9e16789-c146-40e5-bfbb-e3b74a73fc9f"
+        name="UseCase2"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="30144bd6-9c1a-4204-89c3-c3034fb869bb"
+        name="bool" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="b857cbc5-86b8-4177-9ae2-b30f68edd157"
+        name="IEnumerable&lt;StaffType&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="c0061a36-8d7c-4252-9b10-9024891b76cf"
+        LastKnownName="Models"
+        LastKnownLocation="Package_1459.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="1de36e25-e167-4eb0-bb01-70e905683697"
+        LastKnownName=".NET Framework"
+        LastKnownLocation="Package_1506.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="7c9485cf-871a-46db-8178-95f5a4851ff8"
+        LastKnownName="TES Web App"
+        LastKnownLocation="Package_1509.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="f1d8f22a-8577-4073-8af4-f85def37646c"
+        LastKnownName="ASP. NET"
+        LastKnownLocation="Package_1510.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="a26d7cbe-86f6-41ce-a26e-e3b8c9151356"
+        LastKnownName="AppContext"
+        LastKnownLocation="Package_1511.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="dfe20d05-92e5-4057-8569-1503a8ccca56"
+        LastKnownName="Models"
+        LastKnownLocation="Package_1512.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

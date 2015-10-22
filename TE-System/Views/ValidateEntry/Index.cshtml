@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Staff Entries";
+}
+
+<!-- Validation Modal Goes Here..-->
+@{ Html.RenderPartial("~/Views/ValidateEntry/_ValidationForm.cshtml");  }
+
+<!-- Panel Goes Here.. -->
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading clearfix">
+        <div class="pull-left">
+            My Project Entry Records For Week # @ViewBag.CurrentWeek
+        </div>
+    </div>
+    <!-- Panel Content Goes Here..-->
+    <div class="panel-body">
+        <!-- Toolbar  Goes Here..-->
+        @{ Html.RenderPartial("~/Views/ValidateEntry/_Toolbar.cshtml");  }
+
+        <table id="tblStaffEntries">
+            <thead>
+            <th data-field="StaffFullname" data-align="center" data-sortable="true">Staff</th>
+            @*<th data-field="isValidBillability" data-align="center" data-sortable="true">Flagged Info</th>
+                <th data-field="isValidInfo" data-align="center" data-sortable="true">Flagged Billability</th>*@
+            <th data-field="StaffTypeID" data-align="center" data-sortable="true">Role</th>
+            <th data-field="ProjectID" data-align="center" data-sortable="true">Project</th>
+            <th data-field="PracticeID" data-align="center" data-sortable="true">Practice</th>
+            <th data-field="ActivityTypeID" data-align="center" data-sortable="true">Activity</th>           
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Sidebar Controls Go Here..-->
+<div  style="font-size:12px"
+     class="col-xs-10 col-sm-8 col-md-4 sidebar sidebar-right sidebar-animate sidebar-md-show">
+    <div id="loadingSidebar" class="row" style="padding-top:25%">
+        <div class="text-center">
+            <h5>Loading..</h5>
+            <i class="fa fa-3x fa-spinner fa-pulse"></i>
+        </div>
+    </div>   
+    <div id="sidebar"></div>
+</div>
+<!-- // Sidebar -->
+<!--  Ninja Fields -->
+<button type="button"
+        id="sidebargo"
+        style="display:none"
+        data-toggle="sidebar"
+        data-target=".sidebar"></button>
+<input type="hidden" id="flag" />
+<!-- // End Ninja-->
+@section Scripts {
+    @*-- Initialization and Events Listeners --*@
+    <script src="~/Scripts/entry-valdation-events.js"></script>
+}

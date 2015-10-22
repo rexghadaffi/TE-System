@@ -1,0 +1,104 @@
+﻿@using Utilities;
+@{
+    ViewBag.Title = "Timekeeping";
+}
+<!-- Sidebar Goes Here.. -->
+@{ Html.RenderPartial("~/Views/ValidateTime/_Sidebar.cshtml"); }
+<!-- //End Sidebar-->
+<!-- Main Content here! -->
+<div class="col-md-9 col-md-offset-3">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading clearfix">
+            <div class="pull-left">
+                Staff Entries 
+            </div>
+        </div>
+        <!-- Panel Content Goes Here..-->
+        <div class="panel-body">
+            @{ Html.RenderPartial("~/Views/ValidateTime/_Toolbar.cshtml"); }
+            <div class="table-responsive">
+                <table id="tblentries" class="table table-bordered table-condensed table-hover">                  
+                    <tr>
+                        <th class="text-center">
+                            Mon
+                            @DateExtension.DayToDate(DayOfWeek.Monday, Session["week"].ToInteger())
+                        </th>
+                        <th class="text-center">
+                            Tue
+                            @DateExtension.DayToDate(DayOfWeek.Tuesday, Session["week"].ToInteger())
+                        </th>
+                        <th class="text-center">
+                            Wed
+                            @DateExtension.DayToDate(DayOfWeek.Wednesday, Session["week"].ToInteger())
+                        </th>
+                        <th class="text-center">
+                            Thu
+                            @DateExtension.DayToDate(DayOfWeek.Thursday, Session["week"].ToInteger())
+                        </th>
+                        <th class="text-center">
+                            Fri
+                            @DateExtension.DayToDate(DayOfWeek.Friday, Session["week"].ToInteger())
+                        </th>
+                        <th class="text-center">
+                            Sat
+                            @DateExtension.DayToDate(DayOfWeek.Saturday, Session["week"].ToInteger())
+                        </th>
+                        <th class="text-center">
+                            Sun
+                            @DateExtension.Sunday(Session["week"].ToInteger())
+                        </th>
+                        <th class="text-center">
+                            Total
+                        </th>
+                    </tr>
+                    <tbody id="staffEntriesContainer">
+                        <tr id="loadingbarTable" style="display:none">
+                                <td colspan="8">
+                                    <div id="" class="row">
+                                        <div class="text-center">
+                                            Loading..&nbsp;<i class="fa fa-spinner fa-pulse"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        <tr id="dummyRow">
+                            <td class="text-center">0.00 hrs</td>
+                            <td class="text-center">0.00 hrs</td>
+                            <td class="text-center">0.00 hrs</td>
+                            <td class="text-center">0.00 hrs</td>
+                            <td class="text-center">0.00 hrs</td>
+                            <td class="text-center">0.00 hrs</td>
+                            <td class="text-center">0.00 hrs</td>
+                            <td class="text-center">0.00 hrs</td>
+                        </tr>                                   
+                    </tbody>
+                </table>               
+            </div>
+        </div>
+        <!-- // EndPanel Content-->
+    </div>
+</div>
+<!-- //End Main Content here! -->
+<!-- Edit Modal Goes Here..-->
+<div class="modal fade" id="editModal" role="dialog" data-backdrop="static">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">x</button>
+                <center><h4 class="modal-title">Updating Time Entry</h4></center>
+            </div>
+            <div class="modal-body">
+                @{ Html.RenderPartial("~/Views/Shared/_Loadingbar.cshtml"); }
+                <div id="editModalContainer"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- // End -->
+@section Scripts {
+
+    @*-- Initialization and Events Listeners --*@
+    <script src="~/Scripts/timekeeping-events.js"></script>
+    <script src="~/bootstrap-sidebar/sidebar.js"></script>
+}

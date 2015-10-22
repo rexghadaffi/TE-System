@@ -1,0 +1,71 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="product" content="TES">
+    <meta name="description" content="TES">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>TES</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/bootstrap-sidebar/style.css" rel="stylesheet" />
+    <link href="~/bootstrap-sidebar/sidebar.css" rel="stylesheet" />   
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <style>
+        body {
+            padding-top: 7%;
+        }
+        .popover {
+            max-width: 480px;
+        }
+    </style>
+    @RenderSection("style", required: false)    
+</head>
+<body>
+    <!-- Navigational Bar Goes Here..-->
+    @{ Html.RenderPartial("~/Views/Shared/_Navbar.cshtml"); }
+    <!-- Content Goes Here..-->
+    <div class="container-fluid">      
+            @RenderBody()      
+    </div>
+    <!-- Footer Goes Here..-->
+    <!-- Script Section Goes Here..-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")   
+    @Scripts.Render("~/Scripts/bootstrap")     
+    @Scripts.Render("~/Scripts/selectize")
+    @Scripts.Render("~/bundles/jqueryval")        
+    <script type="text/javascript">
+        $.validator.setDefaults({
+            ignore: ""
+        });
+    </script>   
+    @RenderSection("scripts", required: false)  
+    <script src="~/Scripts/form-validator.js"></script>    
+    <script src="~/Scripts/bootstrap-table-init.js"></script>
+    <script src="~/Scripts/hint-init.js"></script>
+    <script src="~/Scripts/notify.js"></script>  
+    <script type="text/javascript">
+        $(document).ready(function () {
+            @Html.Raw(@ViewBag.Saved)          
+            $('#txtSearchWeek').datepicker({
+                title: 'Pick A Date To Search',
+                todayBtn: true,
+                calendarWeeks: true,
+                orientation: 'top auto',
+                autoclose: true,              
+                clearBtn: true,
+            });
+            //-----------------------------
+        });       
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿@using (Html.BeginForm("AddRemarks", "ValidateEntry", FormMethod.Post, new { Id = "RemarksForm" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal fade" id="remarksModal" role="dialog" data-backdrop="static">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">x</button>
+                    <center><h4 class="modal-title">Remarks</h4></center>
+                </div>
+                <div class="modal-body">
+                    <div id="loadingRemarks" class="row" style="padding-bottom:10%">
+                        <div class="text-center">
+                            <h5>Loading..</h5>
+                            <i class="fa fa-3x fa-spinner fa-pulse"></i>
+                        </div>
+                    </div>
+                    <div id="RemarksFormContainer"></div>
+                </div>
+                <div class="modal-footer">
+                    <div class="pull-left">
+                        <button type="submit"
+                                id="btnFlagDetails"
+                                class="btn btn-sm btn-warning"
+                                onclick="FlagInfo()"
+                                title="flag staff">
+                            <span class="fa fa-flag-o fa-fw"></span>
+                            Flag Staff
+                        </button>
+                        <button type="submit"
+                                id="btnFlagBillability"
+                                class="btn btn-sm btn-danger"
+                                onclick="FlagBillability()"
+                                title="flag timekeeper">
+                            <span class="fa fa-clock-o fa-fw"></span>
+                            Flag Timekeeper
+                        </button>
+                        <button type="button"
+                                id="btnFlagDetails"
+                                class="btn btn-sm btn-success"
+                                onclick="EntryValid()"
+                                title="confirm valid">
+                            <span class="fa fa-check"></span>
+                            Confirm Validity
+                        </button>
+                    </div>
+                    <div class="pull-right">
+                        <button type="button" data-dismiss="modal"
+                                class="btn btn-sm btn-default"
+                                title="close modal">
+                            <span class="fa fa-remove fa-fw"></span>
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

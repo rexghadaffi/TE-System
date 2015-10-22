@@ -1,0 +1,32 @@
+﻿
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading clearfix">
+        <div class="pull-left">
+            My Entry Records For Week # <span id="spanCurrentWeek">@ViewBag.CurrentWeek</span>
+        </div>
+        <div class="pull-right">
+            Total Rendered Hours:&nbsp;<strong id="strongTotalHours">@ViewBag.TotalHours</strong>
+        </div>
+    </div>
+    <!-- Panel Content Goes Here..-->
+    <div class="panel-body" id="panelBody">
+
+        <div id="loadingbarInitial">
+            <div style="padding-top:10%;padding-bottom:20%">
+                <div class="text-center">
+                    <h5>Loading..</h5>
+                    <i class="fa fa-3x fa-spinner fa-pulse"></i>
+                </div>
+            </div>
+        </div>
+
+        
+
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/Scripts/entry-events.js"></script>
+}

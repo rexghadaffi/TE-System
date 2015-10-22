@@ -1,0 +1,54 @@
+﻿<!-- Model Contents -->
+@{ Html.RenderPartial("~/Views/Entry/_PreRenderedModals.cshtml"); }
+<!-- // End -->
+
+
+        <!-- Toolbar Goes Here..-->
+        @{ Html.RenderPartial("~/Views/Entry/_Toolbar.cshtml"); }
+        <!--///-->
+        <!-- Table Goes Here..-->
+
+        <table id="tblEntries" class="table-record">
+            <thead>
+            <th data-align="center">Status</th>
+            <th data-align="center" data-sortable="true">
+                Project
+            </th>
+            <th data-align="center" data-sortable="true">
+                Activity
+            </th>
+            <th data-align="center">
+                Role
+            </th>
+            <th data-align="center" data-sortable="true">
+                Practice
+            </th>
+            <th data-align="center" data-sortable="true">
+                Billable
+            </th>
+            <th data-align="center">
+                On Site
+            </th>
+            <th data-align="center">
+                Total
+            </th>
+            <th data-align="center">Actions</th>
+            </thead>
+
+            <tbody id="mydiv">
+                <!--Table Rows-->
+                @{ Html.RenderPartial("_TableRows"); }
+                <!--/// End Rows-->
+            </tbody>
+        </table>
+        <!--///-->
+        <!--Table Footer-->
+        <!-- /// End -->
+   
+
+<div id="sidebar" class="col-xs-6 col-sm-6 col-md-4 sidebar sidebar-left sidebar-animate">
+</div>
+<!--Sidebar-->
+<!-- End Sidebar -->
+
+

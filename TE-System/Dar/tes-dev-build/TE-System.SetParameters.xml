@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Default Web Site/TE-System_deploy" />
+  <setParameter name="ADConnectionString-Web.config Connection String" value="LDAP://ph-wwdc88/DC=PH-WWOS,DC=COM" />
+  <setParameter name="gscdevCRM-Web.config Connection String" value="Data Source=STORM;Initial Catalog=GSCPRD_MSCRM;User ID=sa; Password=asdf1234!@#$" />
+</parameters>

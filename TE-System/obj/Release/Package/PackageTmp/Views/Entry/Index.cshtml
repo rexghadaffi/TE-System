@@ -1,0 +1,211 @@
+﻿@model TE_System.Models.TimeEntryViewModel
+@using Utils;
+@{
+    ViewBag.Title = ViewBag.Test;
+}
+
+
+<!-- // Modals -->
+<!-- Add Modal Goes Here..-->
+@using (Html.BeginForm("Create", "Entry", FormMethod.Post, new { Id = "frmAdd" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal fade" id="addModal" role="dialog" data-backdrop="static">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">x</button>
+                    <center><h4 class="modal-title">Time Entry Form</h4></center>
+                </div>
+                <div class="modal-body">
+                    <div id="loadingbarAdd" class="row" style="padding-bottom:10%">
+                        <div class="text-center">
+                            <h5>Loading..</h5>
+                            <i class="fa fa-3x fa-spinner fa-pulse"></i>
+                        </div>
+                    </div>
+                    <div id="addModalContainer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<!-- // End -->
+
+<!-- Edit Modal Goes Here..-->
+    
+
+        <div class="modal fade" id="editModal" role="dialog" data-backdrop="static">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">x</button>
+                        <center><h4 class="modal-title">Time Entry Form</h4></center>
+                    </div>
+                    <div class="modal-body">
+                        @{ Html.RenderPartial("~/Views/Shared/_Loadingbar.cshtml"); }
+                        <div id="editModalContainer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+                    <!-- // End -->
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading clearfix">
+            <div class="pull-left">
+                My Entry Records For Week # @ViewBag.CurrentWeek
+            </div>
+            <div class="pull-right">
+                Total Rendered Hours:&nbsp;<strong>@ViewBag.TotalHours</strong>
+            </div>
+        </div>
+        <!-- Panel Content Goes Here..-->
+        <div class="panel-body">
+            <!-- Toolbar Goes Here..-->
+            @{ Html.RenderPartial("~/Views/Entry/_Toolbar.cshtml"); }
+            <!--///-->
+            <!-- Table Goes Here..-->
+            <table class="table-record">
+
+                <thead class="primary">
+                <th data-align="center" data-sortable="true">
+                    Project
+                </th>
+                <th data-align="center" data-sortable="true">
+                    Activity
+                </th>
+                <th data-align="center">
+                    Role
+                </th>
+                <th data-align="center" data-sortable="true">
+                    Practice
+                </th>
+                <th data-align="center" data-sortable="true">
+                    Billable
+                </th>
+                <th data-align="center">
+                    On Site
+                </th>
+                <th data-align="center">
+                    Total
+                </th>
+                <th></th>
+                <th></th>
+                </thead>
+
+
+                @foreach (var item in Model.Entries)
+            {
+                    <tr class="@if (item.isValidInfo == false)
+                    { ViewBag.Saved = TE_System.Controllers.Message.PendingInvalidEntry; @ViewBag.Flagged } text-bold">
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProjectID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ActivityTypeID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StaffTypeID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PracticeID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Billability)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OnSite)
+                        </td>
+                        <td>
+                            <a href="#edit" data-toggle="popover"
+                               title="Daily Rendered Hours" onmouseover="reinitpopover()"
+                               data-content="
+                                <table class='table table-bordered table-condensed'>
+                                    <tr>
+                                        <td>Mon @DateExtension.DayToDate(DayOfWeek.Monday, Session["week"].ToInteger())</td>
+                                        <td><span class='badge'>@Html.DisplayFor(modelItem => item.MondayHours)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tue @DateExtension.DayToDate(DayOfWeek.Tuesday, Session["week"].ToInteger())</td>
+                                        <td><span class='badge'>@Html.DisplayFor(modelItem => item.TuesdayHours)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wed @DateExtension.DayToDate(DayOfWeek.Wednesday, Session["week"].ToInteger())</td>
+                                        <td><span class='badge'>@Html.DisplayFor(modelItem => item.WednesdayHours)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Thu @DateExtension.DayToDate(DayOfWeek.Thursday, Session["week"].ToInteger())</td>
+                                        <td><span class='badge'>@Html.DisplayFor(modelItem => item.ThursdayHours)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fri @DateExtension.DayToDate(DayOfWeek.Friday, Session["week"].ToInteger())</td>
+                                        <td><span class='badge'>@Html.DisplayFor(modelItem => item.FridayHours)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sat @DateExtension.DayToDate(DayOfWeek.Saturday, Session["week"].ToInteger())</td>
+                                        <td><span class='badge'>@Html.DisplayFor(modelItem => item.SaturdayHours)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sun @DateExtension.Sunday(Session["week"].ToInteger())</td>
+                                        <td><span class='badge'>@Html.DisplayFor(modelItem => item.SundayHours)</span></td>
+                                    </tr>
+                                </table>">
+                                @Html.DisplayFor(modelItem => item.TotalWeekHours)
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href="#"
+                               data-toggle="popover"
+                               title="Description" onmouseover="reinitpopover()"
+                               data-content="
+                                <p>@Html.DisplayFor(modelItem => item.Description)</p>">
+                                <span class="fa fa-info-circle"></span>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href="#" onclick="ShowEditModal('@item.ID');"
+                               data-toggle="tooltip" onmouseover="reinitpopover()"
+                               data-placement="top"
+                               title="click to edit"><span class="fa fa-pencil"></span></a>
+                        </td>
+                    </tr>
+            }
+
+            </table>
+            <!--///-->
+            <!--Table Footer-->
+            <!-- /// End -->
+        </div>
+    </div>
+
+    @section Scripts {
+<script src="~/Scripts/form-modal.js"></script>
+        <script type="text/javascript">
+            function reinitpopover() {
+                $('[data-toggle="popover"]').popover({
+                    html: true,
+                    placement: 'left',
+                    trigger: 'hover',
+                });
+                $('[data-toggle="tooltip"]').tooltip();
+            }
+
+            $('#btnSearchWeekEntry').on('click', function () {
+                var inputVal = $('#txtSearchWeek').val();
+
+                if (inputVal != "") {
+                    window.location.href = "/Entry/SearchWeek?date=" + inputVal;
+                }
+                else {
+                    $.notify('<strong>Invalid Input!</strong> Select a valid week number.', { type: 'danger' });
+                }
+            });
+        </script>
+    }
+

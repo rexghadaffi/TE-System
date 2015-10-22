@@ -1,0 +1,81 @@
+﻿@model TE_System.Models.TimeEntryViewModel
+
+<form id="frmEdit" method="post" action="/Entry/Edit?tid=@Html.DisplayFor(model => Model.Entry.ID)">
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <legend>Activity Description</legend>
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => Model.Entry.ProjectID, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => Model.Entry.ProjectID,
+                                    (SelectList)ViewBag.Project,
+                                    "Select Project",
+                             new { @class = "form-control selectize" })
+                @Html.ValidationMessageFor(model => Model.Entry.ProjectID)
+            </div>
+            @Html.LabelFor(model => Model.Entry.ActivityTypeID, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => Model.Entry.ActivityTypeID,
+                             (SelectList)ViewBag.Activity,
+                      "Select Activity",
+                      new { @class = "form-control selectize" })
+                @Html.ValidationMessageFor(model => Model.Entry.ActivityTypeID)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => Model.Entry.StaffTypeID, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => Model.Entry.StaffTypeID,
+                      (SelectList)ViewBag.StaffType,
+                      "Select Staff Type",
+                      new { @class = "form-control selectize" })
+
+                @Html.ValidationMessageFor(model => Model.Entry.StaffTypeID)
+            </div>
+            @Html.LabelFor(model => Model.Entry.PracticeID, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => Model.Entry.PracticeID,
+               (SelectList)ViewBag.Practice,
+                      "Select Practice",
+                      new { @class = "form-control selectize" })
+                @Html.ValidationMessageFor(model => Model.Entry.PracticeID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => Model.Entry.Billability, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => Model.Entry.Billability, new { @id = "Entry.Billability", @name = "Entry.Billability", @readonly = "true", @disabled = "disabled" })
+                @Html.ValidationMessageFor(model => Model.Entry.Billability)
+            </div>
+            @Html.LabelFor(model => Model.Entry.OnSite, new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => Model.Entry.OnSite, new { @name = "Entry.OnSite" })
+                @Html.ValidationMessageFor(model => Model.Entry.OnSite)             
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => Model.Entry.Description, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => Model.Entry.Description, new { @class = "form-control", @style = "resize:none" })
+                @Html.ValidationMessageFor(model => Model.Entry.Description)
+            </div>
+        </div>
+        <br />
+        <legend>Hours Rendered</legend>
+        @{ Html.RenderPartial("~/Views/Shared/_HoursRendered.cshtml"); }
+        <br />
+    </div>
+    <div class="modal-footer">
+        <div class="pull-right">
+            <button type="submit" class="btn btn-success">
+                <center>Save</center>
+            </button>
+            <button type="button" data-dismiss="modal" class="btn btn-default">
+                <center>Cancel</center>
+            </button>
+        </div>
+    </div>
+
+</form>
